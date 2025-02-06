@@ -2,17 +2,12 @@
 
 int main() {
     char ch;
-    
-    // Taking character input
+
+    // Taking input for the character
     scanf("%c", &ch);
-    
-    // Converting uppercase to lowercase
-    if (ch >= 'A' && ch <= 'Z') {
-        ch = ch + ('a' - 'A');
-    }
-    
-    // Printing the character
+
+    // Printing the entered character
     printf("You entered: %c\n", ch);
-    
+
     return 0;
 }
