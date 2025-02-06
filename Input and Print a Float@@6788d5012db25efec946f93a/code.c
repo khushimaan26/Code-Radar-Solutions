@@ -2,12 +2,12 @@
 
 int main() {
     float num;
-    
-    // Taking float input
+
+    // Take input using scanf
     scanf("%f", &num);
-    
-    // Printing the float with two decimal places
+
+    // Print the entered float with 2 decimal places
     printf("You entered: %.2f\n", num);
-    
+
     return 0;
 }
