@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 int main() {
-    char str1[100], str2[100];
+    double num;
     
-    // Taking input of two strings
-    scanf("%s %s", str1, str2);
+    // Taking input for a double
+    scanf("%lf", &num);
     
-    // Printing the entered strings
-    printf("You entered: %s and %s\n", str1, str2);
+    // Printing the entered double
+    printf("You entered: %lf\n", num);
     
     return 0;
 }
