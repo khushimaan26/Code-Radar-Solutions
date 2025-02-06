@@ -2,12 +2,11 @@
 
 int main() {
     double num;
-    
-    // Taking input for a double
+    // Take input as a double
     scanf("%lf", &num);
     
-    // Printing the entered double
-    printf("You entered: %lf\n", num);
+    // Print the entered double
+    printf("You entered:\n%.4lf\n", num);
     
     return 0;
 }
