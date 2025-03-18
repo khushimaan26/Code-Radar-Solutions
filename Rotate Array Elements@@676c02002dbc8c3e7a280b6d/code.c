@@ -1,37 +1,44 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-void rotateArray(int *arr, int n, int k) {
-    k = k % n;
-    if (k < 0) {
-        k = k + n;
+// Function to reverse a portion of the array
+void reverse(int arr[], int start, int end) {
+    while (start < end) {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
     }
-    int *temp = (int *)malloc(k * sizeof(int));
-    for (int i = 0; i < k; i++) {
-        temp[i] = arr[n - k + i];
+}
+
+// Function to rotate the array right by K positions
+void rotateArray(int arr[], int n, int k) {
+    k = k % n;  // To handle cases where K > N
+    reverse(arr, 0, n - 1);     // Step 1: Reverse entire array
+    reverse(arr, 0, k - 1);     // Step 2: Reverse first K elements
+    reverse(arr, k, n - 1);     // Step 3: Reverse remaining N-K elements
+}
+
+// Function to print the array (each number in a new line)
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d\n", arr[i]);  // Print each element in a new line
     }
-    for (int i = n - 1; i >= k; i--) {
-        arr[i] = arr[i - k];
-    }
-    for (int i = 0; i < k; i++) {
-        arr[i] = temp[i];
-    }
-    free(temp);
 }
 
 int main() {
     int n, k;
-    scanf("%d", &n);
-    int *arr = (int *)malloc(n * sizeof(int));
+    scanf("%d", &n);  // Read array size
+    int arr[n];
+    
     for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+        scanf("%d", &arr[i]);  // Read array elements
     }
-    scanf("%d", &k);
+    
+    scanf("%d", &k);  // Read K value
+    
     rotateArray(arr, n, k);
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-    free(arr);
+    printArray(arr, n);
+
     return 0;
 }
